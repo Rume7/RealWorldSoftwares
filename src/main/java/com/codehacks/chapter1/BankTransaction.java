@@ -13,7 +13,7 @@ public class BankTransaction {
     private final double amount;
     private final String desc;
 
-    public BankTransaction(LocalDate date, double amount, String desc) {
+    public BankTransaction(final LocalDate date, final double amount, final String desc) {
         this.date = date;
         this.amount = amount;
         this.desc = desc;
@@ -48,8 +48,10 @@ public class BankTransaction {
         return Double.compare(that.amount, amount) == 0 && 
                 date.equals(that.date) && desc.equals(that.desc);
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "BankTransaction{" + "date=" + date + ", amount=" + amount + ", desc=" + desc + '}';
+    }
     
 }
