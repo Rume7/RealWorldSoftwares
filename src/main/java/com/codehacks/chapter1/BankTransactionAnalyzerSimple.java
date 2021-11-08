@@ -27,7 +27,7 @@ public class BankTransactionAnalyzerSimple {
 
         System.out.println("The total for all transactions is " + total);
 
-        System.out.println("Transactions in January " + selectInMonth(bankTransactions, Month.JANUARY));
+        System.out.println("Transactions in January " + selectInMonth(bankTransactions, Month.JANUARY).toString());
     }
 
     public static double calculateTotalAmount(final List<BankTransaction> bankTransactions) {
