@@ -22,7 +22,7 @@ public class BankTransactionAnalyzerSimple {
         final List<String> lines = Files.readAllLines(path);
 
         final List<BankTransaction> bankTransactions
-                = bankStatementParser.parseLinesFromCSV(lines);
+                = bankStatementParser.parseLinesFrom(lines);
 
         final BankStatementProcessor bankStatementProcessor = new BankStatementProcessor(bankTransactions);
         collectSummary(bankStatementProcessor);
