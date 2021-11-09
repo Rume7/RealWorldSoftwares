@@ -32,4 +32,9 @@ public class BankStatementCSVParserTest {
         Assert.assertEquals(expected.getDesc(), result.getDesc());
         //Assert.fail("Not yet implemented");
     }
+    
+    @Test
+    public void noOfTransaction() {
+        Assert.fail("Not yet implemented");
+    }
 }
