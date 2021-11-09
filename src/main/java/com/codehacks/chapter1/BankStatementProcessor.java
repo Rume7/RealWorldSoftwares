@@ -1,7 +1,9 @@
 package com.codehacks.chapter1;
 
 import java.time.Month;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -41,5 +43,30 @@ public class BankStatementProcessor {
             }            
         }
         return total;
+    }
+    
+    public int numberOfTransactionsInAMonth(final Month month) {
+        int noOfTransactions = 0;
+        
+        for (final BankTransaction transaction : bankTransactions) {
+            if (transaction.getDate().getMonth() == month) {
+                noOfTransactions++;
+            }
+        }        
+        return noOfTransactions;
+    }
+    
+    public Map<Month, Integer> numOfTransactionsPerMonth() {
+        Map<Month, Integer> monthTransactions = new HashMap<>();
+        
+        bankTransactions.stream().map(transaction -> transaction.getDate().getMonth()).forEachOrdered(month -> {
+            if (monthTransactions.containsKey(month)) {
+                int frequency = monthTransactions.get(month);
+                monthTransactions.put(month, frequency+1);
+            } else {
+                monthTransactions.put(month, 1);
+            }
+        });
+        return monthTransactions;
     }
 }
